@@ -5544,8 +5544,16 @@ window.addEventListener('DOMContentLoaded', function() {
 </style>
 <script>
 (function(){
+  // 寫作測試專用比對：辭庫的雙連字號 -- 與輸入的單連字號 - 視為等價。
+  // 只在答案比對時正規化，不更動原始辭庫、畫面所顯示的白話字。
   function normalized(text){
-    return String(text||'').normalize('NFC').trim().toLocaleLowerCase().replace(/[\s‐‑–—]/g,'-').replace(/-+/g,'-');
+    return String(text ?? '')
+      .normalize('NFC')
+      .trim()
+      .toLocaleLowerCase()
+      .replace(/[‐‑‒–—−]/g, '-')
+      .replace(/-{2,}/g, '-')
+      .replace(/\s+/g, '');
   }
   function checkWritten(showMistake){
     if (flashcardMask !== 'write' || writingAnswerRevealed) return;
