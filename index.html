@@ -884,6 +884,21 @@ button:disabled{opacity:.48;cursor:not-allowed}
   #view-card .fc-front-two-columns .fc-poj-horizontal { order: 2; }
 }
 </style>
+
+<style>
+/* 僅手機版：隨機顯示列最小高度縮短四分之一；保留字級與上下間距。
+   內容較長時允許自動展開，避免中文與白話字互相重疊。 */
+@media (max-width: 640px) {
+  #view-card .flashcard-box { min-height: 66px; padding: 4px 4px; }
+  #view-card .fc-front-two-columns { min-height: 55.5px; }
+  #view-card .fc-front-two-columns .card-front-area { padding-top: 2px; padding-bottom: 2px; }
+}
+</style>
+<style id="poj-special-hint-50pct-larger">
+/* 只放大「打oo也可」「打nn也可」的說明字，保留符號及清除鍵樣式 */
+.poj-special-keys .poj-special-hint { font-size:clamp(15px,2.4vw,25.5px); }
+@media (max-width:600px) { .poj-special-keys .poj-special-hint { font-size:13.5px; } }
+</style>
 </head>
 <body>
 <div class="app-shell">
