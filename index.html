@@ -849,6 +849,22 @@ button:disabled{opacity:.48;cursor:not-allowed}
   }
 }
 </style>
+
+<style>
+/* 手機版右側隨機字詞：中文/白話字各為上一版的一半，兩者相距一個中文字寬度。 */
+@media (max-width: 640px) {
+  #view-card .fc-front-two-columns .card-front-area {
+    --fc-hanzi-size: 1.075rem;
+    gap: var(--fc-hanzi-size);
+  }
+  #view-card .fc-front-two-columns .fc-hanzi-horizontal {
+    font-size: var(--fc-hanzi-size) !important;
+  }
+  #view-card .fc-front-two-columns .fc-poj-horizontal {
+    font-size: clamp(19.5px, 6vw, 28.5px) !important;
+  }
+}
+</style>
 </head>
 <body>
 <div class="app-shell">
@@ -914,8 +930,8 @@ button:disabled{opacity:.48;cursor:not-allowed}
 <!-- 互動閃卡專用：顯示／遮字自測（只作用目前隨機字詞） -->
 <div aria-label="閃卡顯示與自測模式" class="fc-mask-row" role="group">
 <button class="mini-btn active" id="fmask-none" onclick="setFlashcardMask('none')">全部顯示</button>
-<button class="mini-btn" id="fmask-poj" onclick="setFlashcardMask('poj')">遮白話字自測</button>
-<button class="mini-btn" id="fmask-hanzi" onclick="setFlashcardMask('hanzi')">🙉 遮漢字自測</button>
+<button class="mini-btn" id="fmask-poj" onclick="setFlashcardMask('poj')">遮白話字</button>
+<button class="mini-btn" id="fmask-hanzi" onclick="setFlashcardMask('hanzi')">遮漢字</button>
 <button class="mini-btn" id="fmask-write" onclick="setFlashcardMask('write')" aria-pressed="false">寫作測試</button>
 </div>
 <!-- 第四列：同時顯示「漢字」與「白話字」 -->
