@@ -865,6 +865,25 @@ button:disabled{opacity:.48;cursor:not-allowed}
   }
 }
 </style>
+
+<style>
+/* 僅手機版：右側隨機答案中文在上、白話字在下。
+   保留上一版手機字級及一個中文字大小的間距。 */
+@media (max-width: 640px) {
+  #view-card .fc-front-two-columns .card-front-area {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: var(--fc-hanzi-size, 1.075rem);
+    overflow-x: auto;
+    overflow-y: auto;
+  }
+  #view-card .fc-front-two-columns .fc-hanzi-horizontal { order: 1; }
+  #view-card .fc-front-two-columns .fc-poj-horizontal { order: 2; }
+}
+</style>
 </head>
 <body>
 <div class="app-shell">
